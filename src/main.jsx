@@ -7,6 +7,8 @@ import Layout from './Layout';
 import Error from './Components/Error/Error';
 import Home from './Components/Pages/Home/Home';
 import Login from './Components/Login/Login';
+import Registration from './Components/Registration/Registration';
+
 
 
 const router = createBrowserRouter([
@@ -29,7 +31,14 @@ const router = createBrowserRouter([
         element:<Login></Login>
         
 
-}
+},
+      {
+  
+        path: "/register",
+        element:<Registration></Registration>
+        
+
+},
 
     ]
       

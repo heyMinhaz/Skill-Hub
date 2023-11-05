@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -27,7 +27,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Home</a>
+                <NavLink to="/">
+                  {" "}
+                  <a>Home</a>
+                </NavLink>
               </li>
               <li>
                 <a>Services</a>
@@ -63,7 +66,10 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <NavLink to="/">
+                {" "}
+                <a>Home</a>
+              </NavLink>
             </li>
 
             <li>
@@ -102,11 +108,11 @@ const Navbar = () => {
               </label>
             </div>
           </div>
-          <button className=" relative inline-flex items-center justify-center p-0.5 mb- mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+       <Link to="/login">    <button className=" relative inline-flex items-center justify-center p-0.5 mb- mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
             <span className="relative px-7 py-2   transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-              Login
+          Login
             </span>
-          </button>
+          </button></Link>   
         </div>
       </div>
     );
