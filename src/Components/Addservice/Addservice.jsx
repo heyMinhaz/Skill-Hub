@@ -12,7 +12,7 @@ const Addservice = () => {
                 <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
                   <div className="w-full">
                     <h1 className="text-2xl font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
-                      Add Products Details.
+                      Add Your Service.
                     </h1>
 
                     <p className="mt-4 text-gray-500 dark:text-gray-400">
@@ -58,36 +58,8 @@ const Addservice = () => {
                           />
                         </div>
 
-                        <div className="mt-7 lg:ml-20 lg:mr-20">
-                          <select
-                            name="type"
-                            className="select select-info  max-w-xs "
-                          >
-                            <option disabled selected>
-                              Select Type
-                            </option>
-                            <option>Phone</option>
-                            <option>Computer</option>
-                          </select>
-                        </div>
-
-                        <div className="lg:mb-5">
-                          <label
-                            for="fName"
-                            className="lg:mb-1 lg:block text-gray-700"
-                          >
-                            <span className=" text-sm text-gray-700">
-                              Rating
-                            </span>
-                          </label>
-                          <input
-                            type="text"
-                            name="rating"
-                            id="fName"
-                            placeholder="Rating"
-                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md "
-                          />
-                        </div>
+               
+                      
                       </div>
 
                       <div>
