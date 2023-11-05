@@ -15,7 +15,6 @@ const Login = () => {
             <link
               rel="stylesheet"
               href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/motion-tailwind/motion-tailwind.css"
-         
             />
           </head>
           <body className="bg-white rounded-lg py-5">
@@ -36,16 +35,16 @@ const Login = () => {
                           src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
                           alt=""
                         />
-                        Login in with Google
+                        <p className=" font-poppins"> Login in with Google</p>
                       </a>
                       <div className="flex items-center mb-3">
                         <hr className="h-0 border-b border-solid border-grey-500 grow" />
-                        <p className="mx-4 text-grey-600">or</p>
+                        <p className="  font-poppins mx-4 text-grey-600">or</p>
                         <hr className="h-0 border-b border-solid border-grey-500 grow" />
                       </div>
                       <label
                         htmlFor="email"
-                        className="mb-2 text-sm text-start text-grey-900"
+                        className="mb-2  font-poppins text-sm text-start text-grey-900"
                       >
                         Email*
                       </label>
@@ -92,21 +91,22 @@ const Login = () => {
                       </button>
                       <p className="text-sm leading-relaxed text-grey-900">
                         Not registered yet?{" "}
-                    <Link to='/register'>    <a
-                          href="javascript:void(0)"
-                          className="font-bold text-purple-blue-500"
-                        >
-                          Create an Account
-                        </a></Link>
+                        <Link to="/register">
+                          {" "}
+                          <a
+                            href="javascript:void(0)"
+                            className="font-bold text-purple-blue-500"
+                          >
+                            Create an Account
+                          </a>
+                        </Link>
                       </p>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 my-5">
-         
-            </div>
+            <div className="flex flex-wrap -mx-3 my-5"></div>
           </body>
         </html>
       </div>

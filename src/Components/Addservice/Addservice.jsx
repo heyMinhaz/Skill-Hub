@@ -1,12 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
+import Navbar from "../Pages/Home/Navbar";
+
 
 const Addservice = () => {
     return (
       <div>
+        <Navbar></Navbar>
         <div>
-          <form >
+          <form>
             <section className="bg-white dark:bg-gray-900">
               <div className="flex justify-center min-h-screen">
                 <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
@@ -22,44 +25,41 @@ const Addservice = () => {
 
                     <section className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                       <div>
-                        <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                          Name
+                        <label className="block mb-2 text-sm text-gray-600 ">
+                          Your Name
                         </label>
                         <input
                           type="text"
-                          name="name"
-                          placeholder="Name"
+                          name="yourname"
+                          placeholder="Your Name"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                       </div>
 
                       <div>
                         <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                          Brand name
+                          Service name
                         </label>
                         <input
                           type="text"
-                          name="brandname"
-                          placeholder="Brand Name"
+                          name="Service name
+                        "
+                          placeholder="Service name
+                        "
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                       </div>
 
-                      <div className=" lg:flex lg:flex-row">
-                        <div>
-                          <label className="block lg:mb-2 text-sm text-gray-600 dark:text-gray-200">
-                            Price $
-                          </label>
-                          <input
-                            type="text"
-                            name="Price"
-                            placeholder="Price"
-                            className="block w-full px-5 py-3 lg:mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                          />
-                        </div>
-
-               
-                      
+                      <div>
+                        <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                          Price $
+                        </label>
+                        <input
+                          type="text"
+                          name="price"
+                          placeholder="Photo"
+                          className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                        />
                       </div>
 
                       <div>
@@ -84,20 +84,19 @@ const Addservice = () => {
                           for="message"
                           className=" text-sm block text-gray-600 dark:text-gray-200"
                         >
-                          Product Short Description
+                          Service Short Description
                         </label>
                         <textarea
                           id="message"
                           rows="4"
                           name="textarea"
                           className="block w-full px-5 py-3 mt-2  placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-600 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                          placeholder="  Product Description..."
+                          placeholder="  Service Description..."
                         ></textarea>
 
                         <p className="mt-5">
-                          Provide information about your product's specialties,
-                          pricing, readability warranty, and after-sales
-                          services.
+                          Provide information about your service specialties,
+                          pricing, readability, and learning support.
                           <a
                             className="text-blue-600 hover:underline"
                             href="#"
@@ -109,7 +108,7 @@ const Addservice = () => {
                       </div>
 
                       <button className="flex items-center justify-between w-full px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                        <span>Add </span>
+                        <span>Add Service </span>
 
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
