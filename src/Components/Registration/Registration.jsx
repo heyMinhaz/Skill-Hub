@@ -1,18 +1,141 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/Firebase.config";
+import Swal from "sweetalert2";
+
 
 const Registration = () => {
-  const handelRegister = (e) => {
-    e.preventDefault();
-    console.log(e.currentTarget);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const {createUser} = useContext(AuthContext);
+
+         const location = useLocation();
+         const navigate = useNavigate();
+         console.log("location i n the login page", location);
+
+
+
+
+
+    const handelRegister = (e) => {
+      
+        e.preventDefault();
+        
+        console.log(e.currentTarget);
+        
     const form = new FormData(e.currentTarget);
 
-    const email = form.get("email");
-    const password = form.get("password");
+        const email = form.get("email");
+        
+        const password = form.get("password");
+        
+        const name = form.get("name");
+        
+        const photourl = form.get("photourl");
+        
 
-    console.log(email, password);
-  };
+        console.log(email, password, name, photourl);
+        
+
+        createUser(email, password)
+            .then(result => {
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", Swal.stopTimer);
+                  toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "success",
+                title: "Registration successful",
+              });
+              e.target.reset();
+
+              Navigate(location?.state ? location.state : "/");
+            })
+            .catch(error => {
+              const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                  toast.addEventListener("mouseenter", Swal.stopTimer);
+                  toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+              });
+
+              Toast.fire({
+                icon: "error",
+                title: "Registration failed",
+              });
+            })
+
+
+
+    };
+    
+      const handelPopUpRe = () => {
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            console.log(user);
+            const Toast = Swal.mixin({
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+              },
+            });
+
+            Toast.fire({
+              icon: "success",
+              title: "Registration successful",
+            });
+          })
+          .catch((error) => {
+           {
+             const user = error.user;
+             console.log(user);
+             const Toast = Swal.mixin({
+               toast: true,
+               position: "top-end",
+               showConfirmButton: false,
+               timer: 3000,
+               timerProgressBar: true,
+               didOpen: (toast) => {
+                 toast.addEventListener("mouseenter", Swal.stopTimer);
+                 toast.addEventListener("mouseleave", Swal.resumeTimer);
+               },
+             });
+
+             Toast.fire({
+               icon: "error",
+               title: "Registration failed",
+             });
+           }
+          });
+      };
+  
+
+
 
   return (
     <div>
@@ -44,73 +167,76 @@ const Registration = () => {
                 </div>
               </button>
             </div>
-
-            <div className="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
-              <img
-                className=" h-40"
-                src="https://i.ibb.co/qYH9sBN/Np-JBy19-Y-2x.png"
-                alt=""
-              />
-              <h1 className="text-white text-2xl">Register For your Future</h1>
-              <div>
-                <a
-                  className=" border-white border px-10 py-3  flex items-center justify-center w-full rounded-full   mb-6 text-sm font-medium btn btn-outline btn-info
+            <form onSubmit={handelRegister}>
+              <div className="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto  flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
+                <img
+                  className=" h-40"
+                  src="https://i.ibb.co/qYH9sBN/Np-JBy19-Y-2x.png"
+                  alt=""
+                />
+                <h1 className="text-white text-2xl">
+                  Register For your Future
+                </h1>{" "}
+                <div onClick={handelPopUpRe}>
+                  <a
+                    className=" border-white border px-10 py-3  flex items-center justify-center w-full rounded-full   mb-6 text-sm font-medium btn btn-outline btn-info
                   
                   "
-                >
-                  <img
-                    className="h-5 mr-2"
-                    src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
-                    alt=""
-                  />
-                  <p className=" "> Login in with Google</p>
-                </a>
-              </div>
-              <input
-                className="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
-                placeholder="Name"
-                type="text"
-                name="name"
-                id=""
-              />
-              <input
-                className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
-                placeholder="Email*"
-                type="email"
-                name="email"
-                id=""
-              />
-              <input
-                className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
-                placeholder="Photo Url*"
-                type="text"
-                name="photourl"
-                id=""
-                          />
-                          
-              <input
-                className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
-                placeholder="password*"
-                type="password"
-                name="password"
-                id=""
-              />
-              <input
-                className="w-full p-2 btn btn-outline btn-info rounded-full font-bold text-gray-900 border border-gray-700 "
-                type="submit"
-                name="submit"
-                id=""
-              />
-              <p>
-                You Have Account?
-                <Link to="/login">
-                  {" "}
-                  <a className="font-semibold text-sky-700" href="">
-                    Login
+                  >
+                    <img
+                      className="h-5 mr-2"
+                      src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
+                      alt=""
+                    />
+
+                    <p className=" "> Login in with Google</p>
                   </a>
-                </Link>
-              </p>
-            </div>
+                </div>
+                <input
+                  className="w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-blue-700"
+                  placeholder="Name"
+                  type="text"
+                  name="name"
+                  id=""
+                />
+                <input
+                  className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
+                  placeholder="Email*"
+                  type="email"
+                  name="email"
+                  id=""
+                />
+                <input
+                  className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
+                  placeholder="Photo Url*"
+                  type="text"
+                  name="photourl"
+                  id=""
+                />
+                <input
+                  className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
+                  placeholder="password*"
+                  type="password"
+                  name="password"
+                  id=""
+                />
+                <input
+                  className="w-full p-2 btn btn-outline btn-info rounded-full font-bold text-gray-900 border border-gray-700 "
+                  type="submit"
+                  name="submit"
+                  id=""
+                />
+                <p>
+                  You Have Account?
+                  <Link to="/login">
+                    {" "}
+                    <a className="font-semibold text-sky-700" href="">
+                      Login
+                    </a>
+                  </Link>
+                </p>
+              </div>
+            </form>{" "}
           </div>
         </div>
       </body>
