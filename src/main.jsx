@@ -8,6 +8,7 @@ import Error from './Components/Error/Error';
 import Home from './Components/Pages/Home/Home';
 import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
+import Addservice from './Components/Addservice/Addservice';
 
 
 
@@ -36,6 +37,13 @@ const router = createBrowserRouter([
   
         path: "/register",
         element:<Registration></Registration>
+        
+
+},
+      {
+  
+        path: "/addservice",
+        element:<Addservice></Addservice>
         
 
 },

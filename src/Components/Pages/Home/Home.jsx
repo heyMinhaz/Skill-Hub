@@ -1,5 +1,6 @@
 
-import Navbar from "./Navbar";
+
+import Bannar from "./Bannar";
 import OurTeam from "./OurTeam";
 
 
@@ -7,7 +8,7 @@ const Home = () => {
     return (
       <div>
         <div>
-          <Navbar></Navbar>
+<Bannar></Bannar>
         </div>
             <div>
                 
