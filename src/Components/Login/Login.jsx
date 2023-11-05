@@ -3,11 +3,30 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 
 const Login = () => {
+
+
+      const handelLogin = (e) => {
+        e.preventDefault();
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+
+        const email = form.get("email");
+        const password = form.get("password");
+
+        console.log(email, password);
+
+       
+      };
+
+
+
+
+
     return (
       <div>
         <html>
@@ -19,10 +38,39 @@ const Login = () => {
           </head>
           <body className="bg-white rounded-lg py-5">
             <div className="container flex flex-col mx-auto bg-white rounded-lg pt-12 my-5">
+              <div className="flex flex-row mx-auto">
+                <button
+                  type="button"
+                  className="  text-black  border-gray-500 py-2  px-3 shadow-lg rounded-lg"
+                >
+                  <div className="flex flex-row align-middle mr-5">
+                    <svg
+                      className="w-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                    <NavLink to="/">
+                      {" "}
+                      <p className="ml-2 text-black">Back</p>
+                    </NavLink>
+                  </div>
+                </button>
+              </div>
+
               <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
                 <div className="flex items-center justify-center w-full lg:p-12">
                   <div className="flex items-center xl:p-10">
-                    <form className="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl">
+                    <form
+                      onSubmit={handelLogin}
+                      className="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl"
+                    >
                       <h3 className="mb-3 text-4xl font-extrabold text-dark-grey-900">
                         Login In
                       </h3>
@@ -50,7 +98,8 @@ const Login = () => {
                       </label>
                       <input
                         id="email"
-                        type="email"
+                                            type="email"
+                                            name="email"
                         placeholder="mail@loopple.com"
                         className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
                       />
@@ -61,7 +110,8 @@ const Login = () => {
                         Password*
                       </label>
                       <input
-                        id="password"
+                                            id="password"
+                                            name="password"
                         type="password"
                         placeholder="Enter a password"
                         className="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
@@ -106,7 +156,7 @@ const Login = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 my-5"></div>
+            
           </body>
         </html>
       </div>
