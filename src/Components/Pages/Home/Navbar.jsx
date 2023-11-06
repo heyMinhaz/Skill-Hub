@@ -55,22 +55,26 @@ const Navbar = () => {
               <li>
                 <a>Contact</a>
               </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>My services</a>
-                  </li>
-                  <Link to="/addservice">
+              {user ? (
+                <li>
+                  <a>Dashboard</a>
+                  <ul className="p-2">
                     <li>
-                      <a>Add services</a>
+                      <a>My services</a>
                     </li>
-                  </Link>
-                  <li>
-                    <a>My schedules</a>
-                  </li>
-                </ul>
-              </li>
+                    <Link to="/addservice">
+                      <li>
+                        <a>Add services</a>
+                      </li>
+                    </Link>
+                    <li>
+                      <a>My schedules</a>
+                    </li>
+                  </ul>
+                </li>
+              ) : (
+                <div></div>
+              )}
             </ul>
           </div>
           <Link to="/">
@@ -96,24 +100,29 @@ const Navbar = () => {
             <li>
               <a>Contact</a>
             </li>
-            <li tabIndex={0}>
-              <details>
-                <summary>Dashboard</summary>
-                <ul className="p-2">
-                  <li>
-                    <a>My services</a>
-                  </li>
-                  <Link to="/addservice">
+
+            {user ? (
+              <li tabIndex={0}>
+                <details>
+                  <summary>Dashboard</summary>
+                  <ul className="p-2">
                     <li>
-                      <a>Add services</a>
+                      <a>My services</a>
                     </li>
-                  </Link>
-                  <li>
-                    <a>My schedules</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
+                    <Link to="/addservice">
+                      <li>
+                        <a>Add services</a>
+                      </li>
+                    </Link>
+                    <li>
+                      <a>My schedules</a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            ) : (
+              <div></div>
+            )}
           </ul>
         </div>
 
@@ -124,7 +133,7 @@ const Navbar = () => {
                 <p className="hidden lg:block  ">Minhaz</p>
                 <label
                   tabIndex={0}
-                  className="btn btn-ghost  btn-circle avatar"
+                  className=" flex items-center -mr-5 ml-2  btn-circle avatar"
                 >
                   <div className=" h-7 -mr-4">
                     <img

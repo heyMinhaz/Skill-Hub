@@ -14,11 +14,11 @@ const Bannar = () => {
             <p className="text-6xl font-bold ">Grow Your Skill</p>
             <p className="text-4xl mb-5  font-bold ">With Us</p>
             <p className=" text-sm mb-10 uppercase">
-           Skill Hub is an online platform designed to connect
-              learners with a diverse range of skills and expertise. Whether
-              you're looking to acquire new skills, expand your knowledge in a
-              specific field, or seek professional guidance, Skill Hub offers a
-              dynamic community of experienced instructors and experts.
+              Skill Hub is an online platform designed to connect learners with
+              a diverse range of skills and expertise. Whether you're looking to
+              acquire new skills, expand your knowledge in a specific field, or
+              seek professional guidance, Skill Hub offers a dynamic community
+              of experienced instructors and experts.
             </p>
             <a
               href="#"
@@ -28,7 +28,7 @@ const Bannar = () => {
             </a>
             <a
               href="#"
-              className="bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
+              className="btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white"
             >
               Service
             </a>

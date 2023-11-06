@@ -37,10 +37,10 @@ const Registration = () => {
         
         const name = form.get("name");
         
-        const photourl = form.get("photourl");
+        const photoURL = form.get("photoURL");
         
 
-        console.log(email, password, name, photourl);
+        console.log(email, password, name, photoURL);
         
 
         createUser(email, password)
@@ -211,7 +211,7 @@ const Registration = () => {
                   className="w-full p-2 bg-gray-900 rounded-md border border-gray-700 "
                   placeholder="Photo Url*"
                   type="text"
-                  name="photourl"
+                  name="photoURL"
                   id=""
                 />
                 <input
