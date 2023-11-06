@@ -148,7 +148,7 @@ const Registration = () => {
                 type="button"
                 className="  text-white  border-gray-100 py-2 hover:text-white px-3"
               >
-                <div className="flex flex-row align-middle mr-5">
+           <NavLink to="/">       <div className="flex flex-row align-middle mr-5">
                   <svg
                     className="w-5 mr-2"
                     fill="currentColor"
@@ -161,11 +161,11 @@ const Registration = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <NavLink to="/">
+                
                     {" "}
                     <p className="ml-2">Back</p>
-                  </NavLink>
-                </div>
+                 
+                </div> </NavLink>
               </button>
             </div>
             <form onSubmit={handelRegister}>

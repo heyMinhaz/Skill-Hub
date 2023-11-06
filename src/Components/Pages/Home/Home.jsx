@@ -21,7 +21,7 @@ const Home = () => {
 
 </div>
           
-            <div>
+            <div className=" ">
                 
                 <Future></Future>
 

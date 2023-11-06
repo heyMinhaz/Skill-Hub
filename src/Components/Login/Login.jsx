@@ -88,27 +88,7 @@ const Login = () => {
                       navigate(location?.state ? location.state : "/");
                 })
                 .catch((error) => {
-                  {
-                    const user = error.user;
-                    console.log(user);
-                    const Toast = Swal.mixin({
-                      toast: true,
-                      position: "top-end",
-                      showConfirmButton: false,
-                      timer: 3000,
-                      timerProgressBar: true,
-                      didOpen: (toast) => {
-                        toast.addEventListener("mouseenter", Swal.stopTimer);
-                        toast.addEventListener("mouseleave", Swal.resumeTimer);
-                      },
-                    });
-
-                    Toast.fire({
-                      icon: "error",
-                      title: "Password in incorrect",
-                    });
-                  }
-                });
+           });
             };
         
         
@@ -137,7 +117,7 @@ const Login = () => {
                       type="button"
                       className="  text-black  border-gray-500 py-2  px-3 shadow-lg rounded-lg"
                     >
-                      <div className="flex flex-row align-middle mr-5">
+                      <NavLink to="/">   <div className="flex flex-row align-middle mr-5">
                         <svg
                           className="w-5 mr-2"
                           fill="currentColor"
@@ -150,11 +130,11 @@ const Login = () => {
                             clipRule="evenodd"
                           ></path>
                         </svg>
-                        <NavLink to="/">
+                     
                           {" "}
                           <p className="ml-2 text-black">Back</p>
-                        </NavLink>
-                      </div>
+                    
+                      </div>    </NavLink>
                     </button>
                   </div>
 

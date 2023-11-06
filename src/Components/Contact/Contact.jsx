@@ -1,10 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
+import Navbar from "../Pages/Home/Navbar";
+
 
 const Contact = () => {
     return (
-      <div>
+        <div>
+            
+            <Navbar></Navbar>
+
+
         <section className="bg-white py-20 lg:py-[120px] overflow-hidden relative z-10">
           <div className="container">
             <div className="flex flex-wrap lg:justify-between -mx-4">

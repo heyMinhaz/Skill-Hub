@@ -30,7 +30,7 @@ const Addservice = () => {
                         </label>
                         <input
                           type="text"
-                          name="yourname"
+                          name="serviceProviderName"
                           placeholder="Your Name"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -42,8 +42,7 @@ const Addservice = () => {
                         </label>
                         <input
                           type="text"
-                          name="Service name
-                        "
+                          name="serviceName"
                           placeholder="Service name
                         "
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -57,18 +56,18 @@ const Addservice = () => {
                         <input
                           type="text"
                           name="price"
-                          placeholder="Photo"
+                          placeholder="Price"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                       </div>
 
                       <div>
                         <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                         Service Photo Url
+                          Service Photo Url
                         </label>
                         <input
                           type="text"
-                          name="photourl"
+                          name="servicephotoURL"
                           placeholder="Photo Url"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -90,7 +89,7 @@ const Addservice = () => {
                         </label>
                         <input
                           type="text"
-                          name="serphotourl"
+                          name="serviceProviderPhoto"
                           placeholder="Service Provider Image"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -111,7 +110,7 @@ const Addservice = () => {
                         <textarea
                           id="message"
                           rows="4"
-                          name="textarea"
+                          name="description"
                           className="block w-full px-5 py-3 mt-2  placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-600 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                           placeholder="  Service Description..."
                         ></textarea>
