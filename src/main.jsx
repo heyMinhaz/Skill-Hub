@@ -10,6 +10,7 @@ import Login from './Components/Login/Login';
 import Registration from './Components/Registration/Registration';
 import Addservice from './Components/Addservice/Addservice';
 import AuthProvider from './Provider/AuthProvider';
+import PrivateRoute from './Components/routes/PrivateRoute';
 
 
 
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       {
   
         path: "/addservice",
-        element:<Addservice></Addservice>
+        element:<PrivateRoute><Addservice></Addservice></PrivateRoute>
         
 
 },
