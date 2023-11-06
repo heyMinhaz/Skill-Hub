@@ -1,6 +1,7 @@
 
 
 import Bannar from "./Bannar";
+import Future from "./Future";
 import Navbar from "./Navbar";
 import OurTeam from "./OurTeam";
 
@@ -11,13 +12,21 @@ const Home = () => {
             <div><Navbar></Navbar></div>
         <div>
 <Bannar></Bannar>
-        </div>
+            </div>
+  
+
             <div>
                 
 <OurTeam></OurTeam>
 
 </div>
+          
+            <div>
+                
+                <Future></Future>
 
+
+</div>
          
       </div>
     );

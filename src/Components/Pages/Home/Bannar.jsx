@@ -1,5 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import { Link } from "react-router-dom";
+
 const Bannar = () => {
     return (
       <div>
@@ -20,12 +22,15 @@ const Bannar = () => {
               seek professional guidance, Skill Hub offers a dynamic community
               of experienced instructors and experts.
             </p>
-            <a
-              href="#"
-              className="mr-3 bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
-            >
-              Contact us
-            </a>
+            <Link to="/contact">
+              {" "}
+              <a
+                href="#"
+                className="mr-3 bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
+              >
+                Contact us
+              </a>
+            </Link>
             <a
               href="#"
               className="btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white"

@@ -11,6 +11,7 @@ import Registration from './Components/Registration/Registration';
 import Addservice from './Components/Addservice/Addservice';
 import AuthProvider from './Provider/AuthProvider';
 import PrivateRoute from './Components/routes/PrivateRoute';
+import Contact from './Components/Contact/Contact';
 
 
 
@@ -46,6 +47,13 @@ const router = createBrowserRouter([
   
         path: "/addservice",
         element:<PrivateRoute><Addservice></Addservice></PrivateRoute>
+        
+
+},
+      {
+  
+        path: "/contact",
+        element:<Contact></Contact>
         
 
 },

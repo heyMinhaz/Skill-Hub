@@ -52,9 +52,12 @@ const Navbar = () => {
                 <a>Services</a>
               </li>
 
-              <li>
-                <a>Contact</a>
-              </li>
+              <Link to="/contact">
+                {" "}
+                <li>
+                  <a>Contact</a>
+                </li>
+              </Link>
               {user ? (
                 <li>
                   <a>Dashboard</a>
@@ -97,9 +100,12 @@ const Navbar = () => {
             <li>
               <a>Services</a>
             </li>
-            <li>
-              <a>Contact</a>
-            </li>
+            <Link to="/contact">
+              {" "}
+              <li>
+                <a>Contact</a>
+              </li>
+            </Link>
 
             {user ? (
               <li tabIndex={0}>
