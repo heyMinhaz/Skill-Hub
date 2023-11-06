@@ -119,17 +119,25 @@ const Navbar = () => {
 
         <div className="navbar-end mr-6">
           <div>
-            <div className=" m-4 flex items-center shadow-sm rounded-3xl px-2 sm:h-9 border-gray-200 sm:border">
-              <p className="hidden lg:block  ">Minhaz</p>
-              <label tabIndex={0} className="btn btn-ghost  btn-circle avatar">
-                <div className="w-7 rounded-full -mr-8 ">
-                  <img
-                    className=" sm:mr-8"
-                    src="/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
-                </div>
-              </label>
-            </div>
+            {user ? (
+              <div className=" m-4 flex items-center shadow-sm rounded-3xl px-2 sm:h-9 border-gray-200 sm:border">
+                <p className="hidden lg:block  ">Minhaz</p>
+                <label
+                  tabIndex={0}
+                  className="btn btn-ghost  btn-circle avatar"
+                >
+                  <div className=" h-7 -mr-4">
+                    <img
+                      className=" rounded-full  "
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  </div>
+                </label>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
 
           {user ? (

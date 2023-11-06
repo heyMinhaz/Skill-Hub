@@ -109,6 +109,7 @@ const Registration = () => {
               icon: "success",
               title: "Registration successful",
             });
+                navigate(location?.state ? location.state : "/");
           })
           .catch((error) => {
            {

@@ -101,6 +101,7 @@ const Login = () => {
                     icon: "success",
                     title: "Login successful",
                   });
+                      navigate(location?.state ? location.state : "/");
                 })
                 .catch((error) => {
                   {
