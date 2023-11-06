@@ -12,6 +12,7 @@ import Addservice from './Components/Addservice/Addservice';
 import AuthProvider from './Provider/AuthProvider';
 import PrivateRoute from './Components/routes/PrivateRoute';
 import Contact from './Components/Contact/Contact';
+import Allservices from './Components/All services/Allservices';
 
 
 
@@ -47,6 +48,13 @@ const router = createBrowserRouter([
   
         path: "/addservice",
         element:<PrivateRoute><Addservice></Addservice></PrivateRoute>
+        
+
+},
+      {
+  
+        path: "/allservice",
+        element:<PrivateRoute><Allservices></Allservices></PrivateRoute>
         
 
 },

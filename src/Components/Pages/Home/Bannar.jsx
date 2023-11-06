@@ -6,7 +6,7 @@ const Bannar = () => {
     return (
       <div>
         <div
-          className="  bg-cover bg-center h-[80vh] text-white py-56 px-10 object-fill"
+          className="  bg-cover bg-center  text-white py-56 px-10 object-fill"
           style={{
             backgroundImage:
               "url(https://i.ibb.co/tCq0bXg/WPE-e-Book-WPFor-LMS-Header-1200x628-v01-cleanup-overlay-1.png)",
@@ -25,18 +25,20 @@ const Bannar = () => {
             <Link to="/contact">
               {" "}
               <a
-                href="#"
-                className="mr-3 bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
+
+                className="mr-4  bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
               >
                 Contact us
               </a>
-            </Link>
-            <a
+           
+                    </Link>
+          
+      <button className=""> <a
               href="#"
-              className="btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white"
+              className="btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-white "
             >
               Service
-            </a>
+            </a>      </button>
           </div>
         </div>
       </div>
