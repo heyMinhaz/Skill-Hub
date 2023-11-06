@@ -3,6 +3,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import app from "../firebase/Firebase.config";
+import toast from "react-hot-toast";
 
  export const AuthContext = createContext(null)
 
@@ -29,9 +30,12 @@ return createUserWithEmailAndPassword(auth,email,password)
 
     const logOut = () => {
         
-        return signOut(auth);
-
+ signOut(auth);
+        return toast.error("User logged out successfully");
+        
     }
+
+ 
 
 
     useEffect(() => {

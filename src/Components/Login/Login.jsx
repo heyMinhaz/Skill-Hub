@@ -56,7 +56,7 @@ const Login = () => {
             });
             e.target.reset();
 
-            navigate(location?.state ? location.state : "/");
+            navigate(location?.state ? location.state :"/");
           })
 
           .catch((error) => {
@@ -67,8 +67,6 @@ const Login = () => {
             const handelPopUp = () => {
               signInWithPopup(auth, provider)
                 .then((result) => {
-                  const user = result.user;
-                  console.log(user);
                   const Toast = Swal.mixin({
                     toast: true,
                     position: "top-end",
@@ -83,9 +81,11 @@ const Login = () => {
 
                   Toast.fire({
                     icon: "success",
-                    title: "Login successful",
+                    title: "Login successfully",
                   });
-                      navigate(location?.state ? location.state : "/");
+         
+
+                  navigate(location?.state ? location.state : "/");
                 })
                 .catch((error) => {
            });
