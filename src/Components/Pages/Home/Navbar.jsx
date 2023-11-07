@@ -142,7 +142,7 @@ const Navbar = () => {
           <div>
             {user ? (
               <div className=" m-4 flex items-center shadow-sm rounded-3xl px-2 sm:h-9 border-gray-200 sm:border bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 text-white">
-                <p className="hidden lg:block  ">{user?.displayName}</p>
+                <small className="hidden lg:block  font-bold">{user?.displayName}</small>
                 <label
                   tabIndex={0}
                   className=" flex items-center -mr-5 ml-2  btn-circle avatar"

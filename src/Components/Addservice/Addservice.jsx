@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
@@ -5,11 +6,55 @@ import Navbar from "../Pages/Home/Navbar";
 
 
 const Addservice = () => {
+
+
+    const handelAdd = (e) => {
+      e.preventDefault();
+      console.log(e.currentTarget);
+      const form = new FormData(e.currentTarget);
+
+      const serviceName = form.get("serviceName");
+
+      const servicephotoURL = form.get("servicephotoURL");
+
+      const description = form.get("description");
+      const price = form.get("price");
+      const serviceArea = form.get("serviceArea");
+      const serviceProviderName = form.get("serviceProviderName");
+      const serviceProviderPhoto = form.get("serviceProviderPhoto");
+
+      const newService = {
+        serviceName,
+        servicephotoURL,
+        description,
+        price,
+        serviceArea,
+        serviceProviderName,
+        serviceProviderPhoto,
+      };
+      console.log(newService);
+
+      fetch("http://localhost:5001/services", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newService),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    };
+
+
+
+
     return (
       <div>
         <Navbar></Navbar>
         <div>
-          <form>
+          <form onSubmit={handelAdd}>
             <section className="bg-white dark:bg-gray-900">
               <div className="flex justify-center min-h-screen">
                 <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
@@ -26,7 +71,7 @@ const Addservice = () => {
                     <section className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
                       <div>
                         <label className="block mb-2 text-sm text-gray-600 ">
-                          Your Name
+                          Service Provider Name
                         </label>
                         <input
                           type="text"
@@ -85,7 +130,7 @@ const Addservice = () => {
                       </div>
                       <div>
                         <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                          Service Provider Image
+                          Service Provider Photo
                         </label>
                         <input
                           type="text"

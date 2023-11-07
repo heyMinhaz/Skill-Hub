@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Error = () => {
     return (
@@ -14,9 +15,9 @@ const Error = () => {
                   Oops! The page you are looking for does not exist. It might
                   have been moved or deleted.
                 </p>
-                <button className="bg-gradient-to-r from-purple-300 to-blue-600  text-white font-semibold px-6 py-3 rounded-md mr-6">
+               <Link to='/'> <button className="bg-gradient-to-r from-purple-300 to-blue-600  text-white font-semibold px-6 py-3 rounded-md mr-6">
                   HOME
-                </button>
+                </button></Link>
                 <button className="bg-gradient-to-r from-purple-300 to-blue-600 text-white font-semibold px-6 py-3 rounded-md">
                   Contact Us
                 </button>

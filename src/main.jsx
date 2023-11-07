@@ -13,6 +13,7 @@ import AuthProvider from './Provider/AuthProvider';
 import PrivateRoute from './Components/routes/PrivateRoute';
 import Contact from './Components/Contact/Contact';
 import Allservices from './Components/All services/Allservices';
+import CardDetails from './Components/All services/CardDetails';
 
 
 
@@ -22,58 +23,45 @@ const router = createBrowserRouter([
     element: <Layout></Layout>,
     errorElement: <Error></Error>,
     children: [
-      
       {
-  
         path: "/",
-        element:<Home></Home>
-        
-
-},
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:5001/services"),
+      },
       {
-  
         path: "/login",
-        element:<Login></Login>
-        
-
-},
+        element: <Login></Login>,
+      },
       {
-  
         path: "/register",
-        element:<Registration></Registration>
-        
-
-},
+        element: <Registration></Registration>,
+      },
       {
-  
+        path: "/services/:_id",
+        element: <CardDetails></CardDetails>,
+      },
+      {
         path: "/addservice",
-        element:<PrivateRoute><Addservice></Addservice></PrivateRoute>
-        
-
-},
+        element: (
+          <PrivateRoute>
+            <Addservice></Addservice>
+          </PrivateRoute>
+        ),
+      },
       {
-  
         path: "/allservice",
-        element:<PrivateRoute><Allservices></Allservices></PrivateRoute>
-        
-
-},
+        element: (
+          <PrivateRoute>
+            <Allservices></Allservices>
+          </PrivateRoute>
+        ),
+      },
       {
-  
         path: "/contact",
-        element:<Contact></Contact>
-        
-
-},
-
-    ]
-      
-
-  }
-
-
-
-
+        element: <Contact></Contact>,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
