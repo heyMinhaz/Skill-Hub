@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/no-unknown-property */
 
+import Swal from "sweetalert2";
 import Navbar from "../Pages/Home/Navbar";
 
 
@@ -47,6 +48,19 @@ const Addservice = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+
+ if (data.insertedId) {
+   e.target.reset();
+   // eslint-disable-next-line no-undef
+   Swal.fire({
+     title: "success",
+     text: "Service Added Succesfully",
+     icon: "success",
+     confirmButtonText: "Thank you",
+   });
+ }
+
+
         });
     };
 
