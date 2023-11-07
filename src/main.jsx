@@ -17,6 +17,7 @@ import CardDetails from './Components/All services/CardDetails';
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,9 +38,12 @@ const router = createBrowserRouter([
         element: <Registration></Registration>,
       },
       {
-        path: "/services/:_id",
+        path: "/services/:id",
         element: <CardDetails></CardDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/services/${params.id}`),
       },
+      
       {
         path: "/addservice",
         element: (

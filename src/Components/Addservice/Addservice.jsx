@@ -4,9 +4,13 @@
 
 import Swal from "sweetalert2";
 import Navbar from "../Pages/Home/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Addservice = () => {
+const { user, logOut } = useContext(AuthContext);
+
 
 
     const handelAdd = (e) => {
@@ -92,6 +96,8 @@ const Addservice = () => {
                         </label>
                         <input
                           type="text"
+                          disabled
+                          defaultValue={user?.displayName}
                           name="serviceProviderName"
                           placeholder="Your Name"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -161,10 +167,12 @@ const Addservice = () => {
                           Service Provider Email
                         </label>
                         <input
+                          defaultValue={user?.email}
                           type="email"
+                          disabled
                           name="email"
                           placeholder="Service Provider Email"
-                          className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                          className="  block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                       </div>
 

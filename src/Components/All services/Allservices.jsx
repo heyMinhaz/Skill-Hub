@@ -11,7 +11,7 @@ import Navbar from "../Pages/Home/Navbar";
 const Allservices = () => {
 
     const [services, setServices] = useState([]);
-    const sliceServices =services.slice(0, 6)
+   
     useEffect(() => {
         
         fetch("http://localhost:5001/services")
@@ -55,7 +55,7 @@ const Allservices = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-w-6xl mx-auto">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}
