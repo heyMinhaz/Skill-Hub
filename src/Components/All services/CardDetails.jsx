@@ -1,16 +1,19 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { AuthContext } from "../../Provider/AuthProvider";
+import Navbar from "../Pages/Home/Navbar";
 
 const CardDetails = () => {
 
+   const { user, logOut } = useContext(AuthContext);
     const data = useLoaderData();
     console.log(data);
   const {
     _id,
-    service_id,
+    email,
     serviceName,
     servicephotoURL,
     description,
@@ -21,15 +24,14 @@ const CardDetails = () => {
   } = data;
 
 
-    return (
-      <div>
+  return (
+      
+    <div>
+      <Navbar></Navbar>
+
         <div className="md:flex items-start justify-center py-12  md:px-6 px-4">
-          <div >
-            <img
-              className=" w-[500px]  rounded-lg "
-             
-              src={servicephotoURL}
-            />
+          <div>
+            <img className=" w-[500px]  rounded-lg " src={servicephotoURL} />
           </div>
 
           <div className=" lg:ml-8 md:ml-6 md:mt-0 mt-6">
@@ -113,10 +115,115 @@ const CardDetails = () => {
                 </p>
               </div>
             </div>
-            <button className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none 
-              btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 px-8">
+
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
+            <button
+              className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none  btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 px-8 "
+              onClick={() => document.getElementById("my_modal_1").showModal()}
+            >
               Book Now
             </button>
+            <form>
+              <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                  <label>
+                    {" "}
+                    <span className="label-text">Service Name</span> <br />
+                    <input
+                      type="text"
+                      name="serviceName"
+                      defaultValue={serviceName}
+                      disabled
+                      placeholder="Service Name"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <br />{" "}
+                  <label>
+                    {" "}
+                    <span className="label-text">Service Photo</span> <br />
+                    <input
+                      type="text"
+                      name="servicephotoURL"
+                      defaultValue={servicephotoURL}
+                      disabled
+                      placeholder="Service Name"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>{" "}
+                  <br />
+                  <label>
+                    {" "}
+                    <span className="label-text">
+                      Service Provider Mail
+                    </span>{" "}
+                    <input
+                      type="email"
+                      name="email"
+                      defaultValue={email}
+                      disabled
+                      placeholder="Service Name"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <br />{" "}
+                  <label>
+                    {" "}
+                    <span className="label-text">User Mail</span> <br />
+                    <input
+                      type="email"
+                      name="email"
+                      defaultValue={user?.email}
+                      disabled
+                      placeholder="Service Name"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <br />{" "}
+                  <label>
+                    {" "}
+                    <span className="label-text">Service Taking Date</span>{" "}
+                    <br />
+                    <input
+                      type="date"
+                      name="Servicetakingdate"
+                      placeholder="Service Taking Date"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <br />{" "}
+                  <label>
+                    {" "}
+                    <span className="label-text">Your Location</span> <br />
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Your Location"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <br />{" "}
+                  <label>
+                    {" "}
+                    <span className="label-text">Price</span> <br />
+                    <input
+                      type="text"
+                      name="Price"
+                      disabled
+                      defaultValue={price}
+                      placeholder="Price"
+                      className="input input-bordered w-full max-w-xs"
+                    />
+                  </label>
+                  <div className="modal-action">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 py-4 px-8 text-indigo-600">
+                      Purchase this Service
+                    </button>
+                  </div>
+                </div>
+              </dialog>{" "}
+            </form>
           </div>
         </div>
         <div>
