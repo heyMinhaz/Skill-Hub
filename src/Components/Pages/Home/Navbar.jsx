@@ -12,11 +12,7 @@ const Navbar = () => {
         .then()
      .catch()   
 
-
-
     }
-
-
 
     return (
       <div className="navbar bg-base-100  font-poppins h-[80px] ">
@@ -51,7 +47,7 @@ const Navbar = () => {
               <NavLink to="/allservice">
                 {" "}
                 <li>
-                  <a>Services</a>
+                  <a>All Services</a>
                 </li>
               </NavLink>
 
@@ -65,12 +61,19 @@ const Navbar = () => {
                 <li>
                   <a>Dashboard</a>
                   <ul className="p-2">
-                    <li>
-                      <a>My services</a>
-                    </li>
+                    <Link to="/myservices">
+                      <li>
+                        <a>My services</a>
+                      </li>
+                    </Link>
                     <Link to="/addservice">
                       <li>
                         <a>Add services</a>
+                      </li>
+                    </Link>
+                    <Link to="/manage">
+                      <li>
+                        <a>Manage Service</a>
                       </li>
                     </Link>
                     <li>
@@ -103,7 +106,7 @@ const Navbar = () => {
             <NavLink to="/allservice">
               {" "}
               <li>
-                <a>Services</a>
+                <a>All Services</a>
               </li>
             </NavLink>
             <Link to="/contact">
@@ -118,17 +121,27 @@ const Navbar = () => {
                 <details>
                   <summary>Dashboard</summary>
                   <ul className="p-2">
-                    <li>
-                      <a>My services</a>
-                    </li>
+                    <Link to="/myservices">
+                      <li>
+                        <a>My services</a>
+                      </li>
+                    </Link>
                     <Link to="/addservice">
                       <li>
                         <a>Add services</a>
                       </li>
                     </Link>
-                    <li>
-                      <a>My schedules</a>
-                    </li>
+                    <Link to="/manage">
+                      <li>
+                        <a>Manage Service</a>
+                      </li>
+                    </Link>
+                    <Link to="/myschedules">
+                      {" "}
+                      <li>
+                        <a>My schedules</a>
+                      </li>
+                    </Link>
                   </ul>
                 </details>
               </li>
@@ -142,7 +155,9 @@ const Navbar = () => {
           <div>
             {user ? (
               <div className=" m-4 flex items-center shadow-sm rounded-3xl px-2 sm:h-9 border-gray-200 sm:border bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 text-white">
-                <small className="hidden lg:block  font-bold">{user?.displayName}</small>
+                <small className="hidden lg:block  font-bold">
+                  {user?.displayName}
+                </small>
                 <label
                   tabIndex={0}
                   className=" flex items-center -mr-5 ml-2  btn-circle avatar"

@@ -13,6 +13,7 @@ import Navbar from "./Navbar";
 import OurTeam from "./OurTeam";
 import HomeCard from "../../All services/HomeCard";
 
+
 const Home = () => {
 
  
@@ -92,6 +93,7 @@ const Home = () => {
         <div>
           <OurTeam></OurTeam>
         </div>
+
         <div className=" ">
           <Future></Future>
         </div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const HomeCard = ({ sliceData }) => {
   const {
-    service_id,
+  _id,
     serviceName,
     servicephotoURL,
     description,
@@ -82,7 +82,7 @@ const HomeCard = ({ sliceData }) => {
                     Price : ${price}
                   </p>
                 </div>
-                <Link to={``}>
+                <Link to={`/services/${_id}`}>
                   {" "}
                   <button
                     href=""

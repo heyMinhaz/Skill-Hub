@@ -12,9 +12,9 @@ import toast from "react-hot-toast";
 const AuthProvider = ({ children }) => {
     
     const [user, setUser] = useState(null)
-    
+    const [loading, setLoading] = useState(true);
     const createUser = (email, password) => {
-        
+        setLoading(true);
 return createUserWithEmailAndPassword(auth,email,password)
 
     }
@@ -29,7 +29,7 @@ return createUserWithEmailAndPassword(auth,email,password)
 
 
     const logOut = () => {
-        
+         setLoading(true);
  signOut(auth);
         return toast.error("User logged out successfully");
         
@@ -43,6 +43,7 @@ return createUserWithEmailAndPassword(auth,email,password)
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(`user state changed`, currentUser);
             setUser(currentUser)
+             setLoading(false);
 
         });
         return () => {
@@ -60,6 +61,7 @@ unSubscribe()
       createUser,
       logOut,
       singIn,
+      loading,
     };
 
 

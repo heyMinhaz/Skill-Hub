@@ -24,15 +24,15 @@ const CardDetails = () => {
     return (
       <div>
         <div className="md:flex items-start justify-center py-12  md:px-6 px-4">
-          <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
+          <div >
             <img
-              className=" lg:w-full rounded-lg "
-              alt="image of a girl posing"
+              className=" w-[500px]  rounded-lg "
+             
               src={servicephotoURL}
             />
           </div>
 
-          <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
+          <div className=" lg:ml-8 md:ml-6 md:mt-0 mt-6">
             <div className="border-b border-gray-200 pb-6">
               <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-900 mt-2">
                 {serviceName}
@@ -113,7 +113,8 @@ const CardDetails = () => {
                 </p>
               </div>
             </div>
-            <button className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none">
+            <button className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none 
+              btn btn-outline hover:bg-gradient-to-r from-purple-300 to-blue-600 px-8">
               Book Now
             </button>
           </div>

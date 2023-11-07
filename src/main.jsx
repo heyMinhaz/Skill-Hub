@@ -14,6 +14,9 @@ import PrivateRoute from './Components/routes/PrivateRoute';
 import Contact from './Components/Contact/Contact';
 import Allservices from './Components/All services/Allservices';
 import CardDetails from './Components/All services/CardDetails';
+import Myservices from './Components/My Servicies/Myservices';
+import Manage from './Components/Manage/Manage';
+import Myschedules from './Components/My schedules/Myschedules';
 
 
 
@@ -43,7 +46,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5001/services/${params.id}`),
       },
-      
+
       {
         path: "/addservice",
         element: (
@@ -52,11 +55,36 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/allservice",
         element: (
           <PrivateRoute>
             <Allservices></Allservices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myservices",
+        element: (
+          <PrivateRoute>
+            <Myservices></Myservices>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manage",
+        element: (
+          <PrivateRoute>
+            <Manage></Manage>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myschedules",
+        element: (
+          <PrivateRoute>
+            <Myschedules></Myschedules>
           </PrivateRoute>
         ),
       },
