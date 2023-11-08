@@ -101,6 +101,7 @@ const router = createBrowserRouter([
             <Myschedules></Myschedules>
           </PrivateRoute>
         ),
+        loader:()=> fetch(`https://skill-iota.vercel.app/addservices`),
       },
       {
         path: "/contact",
