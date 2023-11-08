@@ -46,7 +46,7 @@ console.log(providerName);
 
       console.log(newService);
 
-      fetch("http://localhost:5001/services", {
+      fetch("https://skill-iota.vercel.app/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -14,7 +14,7 @@ const Allservices = () => {
    
     useEffect(() => {
         
-        fetch("http://localhost:5001/services")
+        fetch("https://skill-iota.vercel.app/services")
     .then(res => res.json())
     .then(data=> setServices(data))
 

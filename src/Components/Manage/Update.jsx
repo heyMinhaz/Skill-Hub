@@ -53,7 +53,7 @@ const Update = () => {
       };
       console.log(updateData);
 
-      fetch(`http://localhost:5001/services"${_id}`, {
+      fetch(`https://skill-iota.vercel.app/services/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

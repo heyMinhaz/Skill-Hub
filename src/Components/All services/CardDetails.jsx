@@ -59,7 +59,7 @@ const CardDetails = () => {
     };
     console.log(newService);
 
-    fetch("http://localhost:5001/addservices", {
+    fetch("https://skill-iota.vercel.app/addservices", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
