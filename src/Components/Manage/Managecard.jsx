@@ -82,7 +82,7 @@ const Managecard = ({ order }) => {
                     Price : ${price}
                   </p>
                 </div>
-                <Link to={`/services/${_id}`}>
+                <Link to={`/update/${_id}`}>
                   {" "}
                   <button
                     href=""

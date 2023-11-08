@@ -81,17 +81,18 @@ const router = createBrowserRouter([
             <Manage></Manage>
           </PrivateRoute>
         ),
-  
+
         loader: () => fetch("http://localhost:5001/services"),
       },
       {
-        path: "/update",
+        path: "/update/:id",
         element: (
           <PrivateRoute>
             <Update></Update>
           </PrivateRoute>
         ),
-        
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/services/${params.id}`),
       },
       {
         path: "/myschedules",
