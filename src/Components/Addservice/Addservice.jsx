@@ -26,9 +26,10 @@ const { user, logOut } = useContext(AuthContext);
       const description = form.get("description");
       const price = form.get("price");
       const serviceArea = form.get("serviceArea");
-      const serviceProviderName = form.get("serviceProviderName");
+      const providerName = form.get("providerName");
       const email = form.get("email");
       const serviceProviderPhoto = form.get("serviceProviderPhoto");
+console.log(providerName);
 
       const newService = {
         serviceName,
@@ -36,10 +37,13 @@ const { user, logOut } = useContext(AuthContext);
         description,
         price,
         serviceArea,
-        serviceProviderName,
+        providerName,
         email,
         serviceProviderPhoto,
       };
+
+
+
       console.log(newService);
 
       fetch("http://localhost:5001/services", {
@@ -96,9 +100,9 @@ const { user, logOut } = useContext(AuthContext);
                         </label>
                         <input
                           type="text"
-                          disabled
+                     readOnly
                           defaultValue={user?.displayName}
-                          name="serviceProviderName"
+                          name="providerName"
                           placeholder="Your Name"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -169,7 +173,7 @@ const { user, logOut } = useContext(AuthContext);
                         <input
                           defaultValue={user?.email}
                           type="email"
-                          disabled
+                          readOnly
                           name="email"
                           placeholder="Service Provider Email"
                           className="  block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"

@@ -17,6 +17,7 @@ import CardDetails from './Components/All services/CardDetails';
 import Myservices from './Components/My Servicies/Myservices';
 import Manage from './Components/Manage/Manage';
 import Myschedules from './Components/My schedules/Myschedules';
+import Update from './Components/Manage/Update';
 
 
 
@@ -71,6 +72,7 @@ const router = createBrowserRouter([
             <Myservices></Myservices>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5001/services"),
       },
       {
         path: "/manage",
@@ -79,6 +81,17 @@ const router = createBrowserRouter([
             <Manage></Manage>
           </PrivateRoute>
         ),
+  
+        loader: () => fetch("http://localhost:5001/services"),
+      },
+      {
+        path: "/update",
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
+        
       },
       {
         path: "/myschedules",

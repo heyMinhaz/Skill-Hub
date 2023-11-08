@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/Firebase.config";
 import toast from "react-hot-toast";
 
@@ -26,6 +26,16 @@ return createUserWithEmailAndPassword(auth,email,password)
 
 
     }
+
+const handleUpdateProfile = (name, photoURL) => {
+    setLoading(true);
+    
+     console.log(name,photoURL);
+  return updateProfile(auth.currentUser, {
+    displayName: name,
+    photoURL: photoURL,
+  });
+};
 
 
     const logOut = () => {
@@ -62,6 +72,7 @@ unSubscribe()
       logOut,
       singIn,
       loading,
+      handleUpdateProfile,
     };
 
 

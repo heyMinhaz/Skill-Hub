@@ -21,7 +21,10 @@ const Login = () => {
     const { singIn } = useContext(AuthContext);
 
 
-     const location = useLocation();
+  const location = useLocation();
+  
+  const from = location?.state || "/";
+
     const navigate = useNavigate();
       console.log("location i n the login page", location);
 
@@ -56,7 +59,7 @@ const Login = () => {
             });
             e.target.reset();
 
-            navigate(location?.state ? location.state :"/");
+            navigate(from,{replace:true});
           })
 
           .catch((error) => {
@@ -84,8 +87,7 @@ const Login = () => {
                     title: "Login successfully",
                   });
          
-
-                  navigate(location?.state ? location.state : "/");
+   navigate(from, { replace: true });
                 })
                 .catch((error) => {
            });

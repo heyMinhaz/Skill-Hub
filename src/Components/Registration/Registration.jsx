@@ -4,18 +4,20 @@
 import { useContext } from "react";
 import { Link, NavLink, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, updateProfile } from "firebase/auth";
 import app from "../../firebase/Firebase.config";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const Registration = () => {
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser, handleUpdateProfile } = useContext(AuthContext);
 
-         const location = useLocation();
+  const location = useLocation();
+  const from = location?.state || "/";
          const navigate = useNavigate();
          console.log("location i n the login page", location);
 
@@ -38,53 +40,25 @@ const Registration = () => {
         const name = form.get("name");
         
         const photoURL = form.get("photoURL");
-        
+           navigate(from, { replace: true });
 
-        console.log(email, password, name, photoURL);
-        
-
+      console.log(email, password, name, photoURL);
+      
         createUser(email, password)
-            .then(result => {
-              const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener("mouseenter", Swal.stopTimer);
-                  toast.addEventListener("mouseleave", Swal.resumeTimer);
-                },
-              });
-
-              Toast.fire({
-                icon: "success",
-                title: "Registration successful",
-              });
-              e.target.reset();
-
-              Navigate(location?.state ? location.state : "/");
-            })
-            .catch(error => {
-              const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener("mouseenter", Swal.stopTimer);
-                  toast.addEventListener("mouseleave", Swal.resumeTimer);
-                },
-              });
-
-              Toast.fire({
-                icon: "error",
-                title: "Registration failed",
-              });
-            })
-
-
+          .then((userCredential) => {
+            handleUpdateProfile(name, photoURL).then(() => {
+            
+    
+      
+            });
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error("Registation failed,please try again!");
+            console.log(errorMessage);
+            console.log(errorCode);
+          });
 
     };
     
@@ -109,7 +83,7 @@ const Registration = () => {
               icon: "success",
               title: "Registration successful",
             });
-                navigate(location?.state ? location.state : "/");
+                  navigate(from, { replace: true });
           })
           .catch((error) => {
            {
@@ -148,24 +122,24 @@ const Registration = () => {
                 type="button"
                 className="  text-white  border-gray-100 py-2 hover:text-white px-3"
               >
-           <NavLink to="/">       <div className="flex flex-row align-middle mr-5">
-                  <svg
-                    className="w-5 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                
-                    {" "}
+                <NavLink to="/">
+                  {" "}
+                  <div className="flex flex-row align-middle mr-5">
+                    <svg
+                      className="w-5 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>{" "}
                     <p className="ml-2">Back</p>
-                 
-                </div> </NavLink>
+                  </div>{" "}
+                </NavLink>
               </button>
             </div>
             <form onSubmit={handelRegister}>

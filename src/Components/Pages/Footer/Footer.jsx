@@ -13,8 +13,7 @@ const Footer = () => {
                   alt="logo"
                 />
                 <p className="max-w-xs mt-4 text-sm text-gray-600">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptas, accusantium.
+             
                 </p>
                 <div className="flex mt-8 space-x-6 text-gray-600">
                   <a
