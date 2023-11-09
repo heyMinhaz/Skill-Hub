@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Navbar from "../Pages/Home/Navbar";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const CardDetails = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -73,12 +74,8 @@ const CardDetails = () => {
         if (data.insertedId) {
           e.target.reset();
           // eslint-disable-next-line no-undef
-          Swal.fire({
-            title: "success",
-            text: "Service Added Succesfully",
-            icon: "success",
-            confirmButtonText: "Thank you",
-          });
+         
+          toast.success("Successfully Booked");
         }
       });
   };

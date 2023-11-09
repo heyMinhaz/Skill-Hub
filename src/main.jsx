@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <CardDetails></CardDetails>,
+        element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`https://skill-iota.vercel.app/services/${params.id}`),
       },
