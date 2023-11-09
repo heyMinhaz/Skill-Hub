@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
 
     const {
-        _id,
+      _id,
       service_id,
       serviceName,
       servicephotoURL,

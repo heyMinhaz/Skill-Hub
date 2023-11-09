@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { data } from "autoprefixer";
@@ -10,14 +11,23 @@ import Navbar from "../Pages/Home/Navbar";
 
 const Allservices = () => {
 
+
+     
+      const [search, setsearch] = useState("");
+
+      const searchQuery = search.toLowerCase();
+
     const [services, setServices] = useState([]);
    
     useEffect(() => {
         
-        fetch("https://skill-iota.vercel.app/services")
+        fetch("http://localhost:5001/services")
     .then(res => res.json())
     .then(data=> setServices(data))
 
+   
+
+      
 
     },[])
 
@@ -40,15 +50,11 @@ const Allservices = () => {
                 </p>
                 <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
                   <input
+                    onChange={(e) => setsearch(e.target.value)}
                     className="text-base text-gray-400 flex-grow outline-none px-2 "
                     type="text"
-                    placeholder="Search your domain name"
+                    placeholder="Search"
                   />
-                  <div className="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
-                    <button className="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">
-                      Search
-                    </button>
-                  </div>
                 </div>
               </form>
             </div>
@@ -56,9 +62,15 @@ const Allservices = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-w-6xl  mx-auto">
-          {services.map((service) => (
-            <ServiceCard key={service._id} service={service}></ServiceCard>
-          ))}
+          {services
+            .filter((item) => {
+              return item.serviceName.toLowerCase().includes(searchQuery);
+            })
+            .map((food) => (
+              <ServiceCard key={food._id} service={food}>
+                {" "}
+              </ServiceCard>
+            ))}
         </div>
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {sliceServices.map((sliceService) => (

@@ -11,7 +11,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Addservice = () => {
 const { user, logOut } = useContext(AuthContext);
 
-
+<title>Add Products</title>
 
     const handelAdd = (e) => {
       e.preventDefault();
@@ -46,7 +46,7 @@ console.log(providerName);
 
       console.log(newService);
 
-      fetch("https://skill-iota.vercel.app/services", {
+      fetch("http://localhost:5001/services", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
