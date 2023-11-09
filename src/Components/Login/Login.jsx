@@ -23,7 +23,7 @@ const Login = () => {
 
   const location = useLocation();
   
-  const from = location?.state || "/";
+  const from = '/';
 
     const navigate = useNavigate();
       console.log("location i n the login page", location);
@@ -87,7 +87,7 @@ const Login = () => {
                     title: "Login successfully",
                   });
          
-   navigate(from, { replace: true });
+     navigate(from, { replace: true });
                 })
                 .catch((error) => {
            });
