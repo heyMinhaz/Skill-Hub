@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import { data } from "autoprefixer";
+
 import { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import Navbar from "../Pages/Home/Navbar";
@@ -21,7 +21,7 @@ const Allservices = () => {
    
     useEffect(() => {
         
-        fetch("https://skill-iota.vercel.app/services")
+        fetch("https://skill-iota.vercel.app")
     .then(res => res.json())
     .then(data=> setServices(data))
 
@@ -35,7 +35,7 @@ const Allservices = () => {
     return (
       <div>
         <Navbar></Navbar>
-
+      
         <div>
           <div className="pt-5 flex justify-center items-center">
             <div className="container mx-auto bg-indigo-500 rounded-lg p-14">

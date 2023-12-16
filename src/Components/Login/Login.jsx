@@ -94,13 +94,6 @@ const Login = () => {
             };
         
         
-        
-        
-        
-    
-
-
-
 
 
         return (

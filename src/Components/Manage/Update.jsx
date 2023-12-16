@@ -37,7 +37,7 @@ const Update = () => {
        const description = form.get("description");
        const price = form.get("price");
        const serviceArea = form.get("serviceArea");
-       const providerName = form.get("providerName");
+       const serviceProviderName = form.get("providerName");
        const email = form.get("email");
        const serviceProviderPhoto = form.get("serviceProviderPhoto");
 
@@ -48,12 +48,12 @@ const Update = () => {
         description,
         price,
         serviceArea,
-        providerName,
+        serviceProviderName,
         serviceProviderPhoto,
       };
       console.log(updateData);
 
-      fetch(`https://skill-iota.vercel.app/services/${_id}`, {
+      fetch(`https://skill-iota.vercel.app/${_id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

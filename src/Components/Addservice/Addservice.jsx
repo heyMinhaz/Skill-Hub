@@ -26,10 +26,10 @@ const { user, logOut } = useContext(AuthContext);
       const description = form.get("description");
       const price = form.get("price");
       const serviceArea = form.get("serviceArea");
-      const providerName = form.get("providerName");
+      const serviceProviderName = form.get("providerName");
       const email = form.get("email");
       const serviceProviderPhoto = form.get("serviceProviderPhoto");
-console.log(providerName);
+console.log(serviceProviderName);
 
       const newService = {
         serviceName,
@@ -37,7 +37,7 @@ console.log(providerName);
         description,
         price,
         serviceArea,
-        providerName,
+        serviceProviderName,
         email,
         serviceProviderPhoto,
       };
@@ -46,7 +46,7 @@ console.log(providerName);
 
       console.log(newService);
 
-      fetch("https://skill-iota.vercel.app/services", {
+      fetch("https://skill-iota.vercel.app", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,7 +100,7 @@ console.log(providerName);
                         </label>
                         <input
                           type="text"
-                     readOnly
+                          readOnly
                           defaultValue={user?.displayName}
                           name="providerName"
                           placeholder="Your Name"
@@ -161,7 +161,7 @@ console.log(providerName);
                         </label>
                         <input
                           type="text"
-                          name="serviceProviderPhoto"
+                          name="serviceProviderName"
                           placeholder="Service Provider Image"
                           className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                         />

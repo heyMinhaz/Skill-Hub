@@ -43,9 +43,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <PrivateRoute><CardDetails></CardDetails></PrivateRoute>,
-        loader: ({ params }) =>
-          fetch(`https://skill-iota.vercel.app/services/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`https://skill-iota.vercel.app/${params.id}`),
       },
 
       {
@@ -59,11 +62,7 @@ const router = createBrowserRouter([
 
       {
         path: "/allservice",
-        element: (
-          <PrivateRoute>
-            <Allservices></Allservices>
-          </PrivateRoute>
-        ),
+        element: <Allservices></Allservices>,
       },
       {
         path: "/myservices",
@@ -91,8 +90,7 @@ const router = createBrowserRouter([
             <Update></Update>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://skill-iota.vercel.app/services/${params.id}`),
+        loader: ({ params }) => fetch(`https://skill-iota.vercel.app/${params.id}`),
       },
       {
         path: "/myschedules",
@@ -101,7 +99,7 @@ const router = createBrowserRouter([
             <Myschedules></Myschedules>
           </PrivateRoute>
         ),
-        loader:()=> fetch(`https://skill-iota.vercel.app/addservices`),
+        loader: () => fetch(`https://skill-iota.vercel.app/addservices`),
       },
       {
         path: "/contact",
